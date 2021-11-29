@@ -20,7 +20,7 @@ public class StudentService {
     public StudentService(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
-
+    //List all students
     public List<Student> getStudents() {
         return studentRepository.findAll();
     }
@@ -33,7 +33,7 @@ public class StudentService {
        }
        studentRepository.save(student);
     }
-
+    //Delete student by their ID
     public void deleteStudent(Long studentId){
         boolean exists = studentRepository.existsById(studentId);
         if (!exists) {
@@ -42,7 +42,7 @@ public class StudentService {
         }
         studentRepository.deleteById(studentId);
     }
-
+    //Update student records in database
     @Transactional
     public void updateStudent(Long studentId,
                               String name,
